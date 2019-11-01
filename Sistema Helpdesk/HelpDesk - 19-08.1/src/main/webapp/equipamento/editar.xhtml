@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="../template.xhtml">
+        <ui:define name="corpo">
+
+            <h:form>
+                <p:panel id="basic" header="Cadastrar Equipamento" style="margin-bottom: 20px">
+                    <p:panelGrid columns="2">        
+
+                        <p:outputLabel value="Id"></p:outputLabel>
+                        <p:inputText value="#{equipamentoMB.equipamento.id}" disabled="true" > </p:inputText>
+
+                        <p:outputLabel value="Ativo"/>
+                        <p:selectBooleanCheckbox value="#{equipamentoMB.equipamento.ativo}" itemLabel=""/> 
+
+
+                        <p:outputLabel value="Dados Complementares"/>
+                        <p:inputText value="#{equipamentoMB.equipamento.dadosComplementares}"/> 
+
+                        <p:outputLabel value="Data de Fim da Garantia"/>
+                        <p:calendar id="dtFimGarantia" value="#{equipamentoMB.equipamento.dataFimGarantia}" 
+                                    pattern="dd/MM/yyyy" mask="true" timeZone="America/Sao_Paulo"
+                                    locale="pt_BR"/>
+                        
+                         <p:outputLabel value="Fabricante"/>
+                        <p:selectOneMenu value="#{equipamentoMB.equipamento.fabricante}" converter="fabricanteConverter">
+                            <f:selectItem itemValue="0" itemLabel="-- selecione --" />
+                            <f:selectItems value="#{equipamentoMB.listaFabricante}" var="fabricante"  
+                                           itemValue="#{fabricante}" itemLabel="#{fabricante.nome}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="Local de Instalacao"/>
+                        <p:selectOneMenu value="#{equipamentoMB.equipamento.localInstalacao}" converter="localConverter">
+                            <f:selectItem itemValue="0" itemLabel="-- selecione --" />
+                            <f:selectItems value="#{equipamentoMB.listaLocal}" var="local"  
+                                           itemValue="#{local}" itemLabel="#{local.nome}"/>
+                      </p:selectOneMenu>
+
+                         <p:outputLabel value="Modelo"/>
+                         <p:selectOneMenu value="#{equipamentoMB.equipamento.modelo}" converter="modeloConverter">
+                            <f:selectItem itemValue="0" itemLabel="-- selecione --" />
+                            <f:selectItems value="#{equipamentoMB.listaModelo}" var="modelo"  
+                                           itemValue="#{modelo}" itemLabel="#{modelo.nome}"/>
+                       </p:selectOneMenu>
+
+                        <p:outputLabel value="Numero Patrimonio"/>
+                        <p:inputText value="#{equipamentoMB.equipamento.numeroPatrimonio}"/> 
+
+                        <p:outputLabel value="Observacao"/>
+                        <p:inputText value="#{equipamentoMB.equipamento.observacao}"/> 
+ 
+                        <h:outputText value="Tipo Equipamento"></h:outputText>
+                        <p:selectOneMenu value="#{equipamentoMB.equipamento.tipoEquipamento}" 
+                                         converter="tipoEquipamentoConverter">
+                            <f:selectItem itemValue="0" itemLabel="-- selecione --" />
+                            <f:selectItems value="#{equipamentoMB.listaTipoEquipamento}" var="tipoequipamento"  
+                                           itemValue="#{tipoequipamento}" itemLabel="#{tipoEquipamento}"/>
+                        </p:selectOneMenu>
+                                                              
+                   
+                    </p:panelGrid>
+                    <p:commandButton action="#{equipamentoMB.gravar()}" value="Gravar"/>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

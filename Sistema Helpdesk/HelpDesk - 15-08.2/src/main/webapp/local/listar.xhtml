@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="../template.xhtml">
+
+        <ui:define name="corpo">
+            <h:form>
+
+                <p:panel header="Locais" 
+                         style="margin-bottom:20px">
+
+                    <p:dataTable id="locais" value="#{localMB.listaLocal}" 
+                                 var="local" >
+                        <p:column style="text-align: center;" filterBy="#{local.id}">
+                            <f:facet name="header">ID</f:facet>
+                            <p:outputLabel value="#{local.id}"  />
+                        </p:column>
+                        <p:column style="text-align: center;" filterBy="#{local.sigla}">
+                            <f:facet name="header">SIGLA</f:facet>
+                            <p:outputLabel value="#{local.sigla}"  />
+                        </p:column>
+
+                        <p:column style="text-align: center;" filterBy="#{localMB.nome}">     
+                            <f:facet name="header">Nome</f:facet>
+                            <p:outputLabel value="#{local.nome}"  />
+                        </p:column>                          
+                        <p:column>
+                            <p:commandButton value="Editar" action="#{localMB.editar(local)}" />
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="Excluir" update="locais" action="#{localMB.excluir(local)}"/>
+                    </p:column>
+                        
+
+
+                    </p:dataTable>
+
+                </p:panel>
+                <p:commandButton ajax="false"  value="Novo" action="#{localMB.novoLocal()}" />
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
+
+

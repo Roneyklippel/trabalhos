@@ -1,0 +1,35 @@
+@Test
+    public void UniaoLista(){
+    
+List<Integer> listaUnir = new ArrayList<>();
+        listaUnir.add(2);
+        listaUnir.add(5);
+        listaUnir.add(6);
+List<Integer> listaUnir2 = new ArrayList<>();
+        listaUnir2.add(4);
+        listaUnir2.add(7);
+        listaUnir2.add(9);
+        // Agora vamos chamar nossa funcao que irá resolver nosso problema
+        
+        
+        
+        
+        ListaUniao1 unir = new ListaUniao1();
+        List<Integer> listaSomar = unir.ListaUniao(listaUnir, listaUnir2);
+        
+        
+        
+        
+        
+        // Simulando lista de dados que será retornada na funcao
+        List<Integer> listaSoma1 = new ArrayList<>();
+        listaSoma1.add(2);
+          listaSoma1.add(4);
+        listaSoma1.add(5);
+        listaSoma1.add(6);
+       
+        listaSoma1.add(7);
+        listaSoma1.add(9);
+        // Metodo que compara se as listas sao mesmo iguais
+        assertEquals(listaSomar, listaSoma1);
+    }

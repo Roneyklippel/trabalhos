@@ -1,0 +1,5 @@
+       public Usuario getUsuarioLogado(){
+       FacesContext fc = FacesContext.getCurrentInstance();
+        //recuperar valor de sessão
+        return (Usuario) fc.getExternalContext().getSessionMap().get("usuarioLogado");
+       }

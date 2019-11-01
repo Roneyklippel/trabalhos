@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="../template.xhtml">
+
+        <ui:define name="corpo">
+            <h:form>
+
+                <p:panel header="Usuarios" 
+                         style="margin-bottom:20px">
+
+                    <p:dataTable id="usuarios" value="#{usuarioMB.listaUsuario}" 
+                                 var="usuario" >
+                        <p:column style="text-align: center;" filterBy="#{usuario.id}">
+                            <f:facet name="header">ID</f:facet>
+                            <p:outputLabel value="#{usuario.id}"  />
+                        </p:column>
+
+                        <p:column style="text-align: center;" filterBy="#{usuario.nome}">     
+                            <f:facet name="header">Nome</f:facet>
+                            <p:outputLabel value="#{usuario.nome}"  />
+                        </p:column>
+                        
+                        
+                        <p:column style="text-align: center;" filterBy="#{usuario.cpf}">     
+                            <f:facet name="header">CPF</f:facet>
+                            <p:outputLabel value="#{usuario.cpf}"  />
+                        </p:column>
+                        
+                        <p:column style="text-align: center;" filterBy="#{usuario.telefone}">     
+                            <f:facet name="header">Telefone</f:facet>
+                            <p:outputLabel value="#{usuario.telefone}"  />
+                        </p:column>
+                                               
+                        <p:column>
+                            <p:commandButton value="Editar" action="#{usuarioMB.editar(usuario)}" />
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="Excluir" update="usuarios" action="#{usuarioMB.excluir(usuario)}"/>
+                    </p:column>
+                        
+
+
+                    </p:dataTable>
+
+                </p:panel>
+                <p:commandButton ajax="false"  value="Novo" action="#{usuarioMB.novoUsuario()}" />
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
+

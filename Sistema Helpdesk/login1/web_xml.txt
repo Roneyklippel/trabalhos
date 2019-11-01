@@ -1,0 +1,9 @@
+    <filter>
+        <filter-name>Filtro Seguranca</filter-name>
+        <filter-class>br.com.laa.helpdesk.controle.LoginFiltro</filter-class>
+    
+    </filter>
+    <filter-mapping>
+        <filter-name>Filtro Seguranca</filter-name>
+        <url-pattern>/faces/*</url-pattern>
+    </filter-mapping>

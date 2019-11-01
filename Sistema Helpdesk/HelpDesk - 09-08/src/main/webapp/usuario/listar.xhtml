@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="../template.xhtml">
+
+        <ui:define name="corpo">
+            <h:form>
+
+                <p:panel header="Usuarios" 
+                         style="margin-bottom:20px">
+
+                    <p:dataTable id="usuarios" value="#{UsuarioMB.listaUsuario}" 
+                                 var="usuario" >
+                        <p:column style="text-align: center;" filterBy="#{Usuario.id}">
+                            <f:facet name="header">ID</f:facet>
+                            <p:outputLabel value="#{Usuario.id}"  />
+                        </p:column>
+
+                        <p:column style="text-align: center;" filterBy="#{Usuario.nome}">     
+                            <f:facet name="header">Nome</f:facet>
+                            <p:inputText value="#{Usuario.nome}"  />
+                        </p:column>
+                        
+                        
+                        <p:column style="text-align: center;" filterBy="#{Usuario.cpf}">     
+                            <f:facet name="header">CPF</f:facet>
+                            <p:inputText value="#{Usuario.cpf}"  />
+                        </p:column>
+                        
+                        <p:column style="text-align: center;" filterBy="#{Usuario.telefone}">     
+                            <f:facet name="header">Telefone</f:facet>
+                            <p:inputText value="#{Usuario.telefone}"  />
+                        </p:column>
+                        
+                        <p:column style="text-align: center;" filterBy="#{Usuario.senha}">     
+                            <f:facet name="header">Senha</f:facet>
+                            <p:password value="#{Usuario.senha}"  />
+                        </p:column>
+
+                                               
+                        <p:column>
+                            <p:commandButton value="Editar" action="#{UsuarioMB.editar(Usuario)}" />
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="Excluir" action="#{UsuarioMB.excluir(Usuario)}"/>
+                    </p:column>
+                        
+
+
+                    </p:dataTable>
+
+                </p:panel>
+                <p:commandButton ajax="false" update="modelos" value="Novo" action="#{UsuarioMB.novoUsuario()}" />
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
+

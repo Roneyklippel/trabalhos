@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <style>
+                .ui-datagrid{border: none !important;}  
+                .ui-datagrid-content {border: none !important;}  
+                .ui-panelgrid tr,
+                .ui-panelgrid td {
+                    border: none !important;
+                }
+            </style>
+            <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' 
+                  http-equiv="Content-Type"/>
+            <title>HELPDESK</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <h:form id="formp">
+                <p:growl id="growl" showDetail="true" sticky="true" /> 
+                <p:layout fullPage="true">
+                    <p:layoutUnit position="north" resizable="true"
+                                  closable="true" collapsible="true">
+                        <ui:insert name="cabecalho">
+                            <p:panelGrid style="width: 100%;height: 80px">
+                                <f:facet name="header">
+                                    <p:row>
+                                        <p:column>SISTEMA DE GERENCIAMENTO DE CHAMADOS</p:column>
+                                    </p:row>
+                                </f:facet>
+                            </p:panelGrid>
+                        </ui:insert>              
+                        
+                    </p:layoutUnit>
+
+                  
+                 
+                    <p:layoutUnit position="center">
+                        <ui:insert name="corpo">
+                            <h1>Corpo</h1>
+                        </ui:insert>              
+                    </p:layoutUnit>
+
+                </p:layout>
+
+            </h:form>
+        </h:body>
+    </f:view>
+</html>

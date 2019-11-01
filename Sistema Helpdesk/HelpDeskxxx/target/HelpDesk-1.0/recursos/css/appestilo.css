@@ -1,0 +1,19 @@
+.container {
+      width: 100vw;
+      height: 100vh;
+      background: cadetblue;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+  
+  }
+  .box {
+      width: 288px;
+      height: 400px;
+      background: darkgrey;   
+  }
+  
+  body {
+      margin: 0px;
+  }

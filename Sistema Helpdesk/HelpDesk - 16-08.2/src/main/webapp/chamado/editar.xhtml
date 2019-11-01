@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Chamados</title>
+        <link href="#{facesContext.externalContext.requestContextPath}/recursos/css/appestilo.css" 
+              rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <div class="outer" id="outer">  
+            <div class="inner" id="inner">
+                <p:panel header="Chamado" style="margin-bottom:20px">
+
+                    <h:panelGrid columns="4">
+                        <p:outputLabel value="Nº Chamado"/>
+                        <p:inputText disabled="true" value="001"/>
+                        <p:outputLabel value="Dt. p/ Atendimento"/>
+                        <p:inputText disabled="true" value="25/02/2001 15:00"/>    
+                    </h:panelGrid>
+
+                    <p:panel header="Abertura" style="margin-bottom:20px">
+                        <h:panelGrid columns="4">
+                            <h:outputLabel value="Solicitante"/>
+                            <h:inputText disabled="true" value="fulano de tal"/>
+                            <h:outputLabel value="Dt. Abertura"/>
+                            <h:inputText disabled="true" value="25/02/2001 12:00"/>
+
+                            <h:outputLabel value="Tipo Chamado"/>
+                            <h:inputText  value="Selecione o tipo"/>
+                            <h:outputLabel value="Equipamento"/>
+                            <h:inputText  value="Selecionoe o equipamento"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:outputLabel value="Descrição"/>
+                            <p:inputTextarea rows="5" cols="87" />
+
+                        </h:panelGrid>
+
+                    </p:panel>
+
+                    <p:panel header="Atendimento" style="margin-bottom:20px">
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Status"/>
+                            <h:inputText disabled="true" value="Aberto"/>
+                            <h:outputLabel value="Tec. Responsável"/>
+                            <h:inputText disabled="true" value="Lúcio André"/>
+
+
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:outputLabel value="Solução"/>
+                            <p:inputTextarea rows="5" cols="87" />
+                        </h:panelGrid>
+                    </p:panel>
+
+                    <p:panelGrid columns="4">
+                        <p:commandButton value="Botão 1"/>
+                        <p:commandButton value="Botão 2"/>
+                        <p:commandButton value="Botão 3"/>
+                        <p:commandButton value="Botão 4"/>
+                    </p:panelGrid>
+
+
+                </p:panel>
+            </div>  
+        </div>
+    </h:body>
+</html>
